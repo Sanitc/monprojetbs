@@ -7,18 +7,18 @@
     <#if page??>
     <h1> ${page} </h1>
     </#if>
-    <a href="create">Create new</a>
+    <a href="create">Create new</a><br/>
+    <a href="/product/index">Product List</a>
     <table class="table table-bordered table-hover">
         <tr>
         <th>Firstname</th>
         <th>Lastname</th>
         </tr>
-
         <#list items as item>
             <tr>
                 <td>${item.firstname}</td>
                 <td>${item.lastname}</td>
-                <td><a href="show/${item["id"]}">Show</a></td>
+                <td><a href="details/${item["id"]}">Detail</a></td>
                 <td>
                     <form action="delete" method="POST">
                     <input type="hidden" name="id" value="${item["id"]}">

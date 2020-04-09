@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tactfactory.monprojetsb.monprojetsb.entities.Product;
+import com.tactfactory.monprojetsb.monprojetsb.entities.User;
 import com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository;
 
 
 @Controller
-@RequestMapping(value = "/product")
+@RequestMapping(value = "product")
 public class ProductController {
 	
 	@Autowired
@@ -45,17 +46,17 @@ public class ProductController {
         return "redirect:index";
     }
 
-    @GetMapping(value = {"/delete/{id}"})
-    public String delete(@PathVariable(value = "id") long id) {
-//        Product product = details(id);
-//        repository.delete(product);
+    @PostMapping(value = {"/delete"})
+    public String delete(long id) {
+        Product product = repository.getOne(id);
+        repository.delete(product);
         return "redirect:index";
     }
 
     @GetMapping(value = {"/details/{id}"})
-    public String details(@PathVariable(value = "id") long id) {
-//        return repository.getOne(id);
-        return "redirect:index";
+    public String details(Model model,@PathVariable(value = "id") long id) {        
+        model.addAttribute("product",repository.getOne(id));
+		return "product/detail";
     }
 	
 }

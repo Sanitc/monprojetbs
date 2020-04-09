@@ -43,15 +43,19 @@ public class UserController {
         return "redirect:index";
     }
     
-    @GetMapping(value = {"/delete/{id}"})
-    public void delete(@PathVariable(value = "id") long id) {
-        User user = details(id);
+    @PostMapping(value = {"/delete"})
+    public String delete(long id) {
+        User user = repository.getOne(id);
         repository.delete(user);
+        return "redirect:index";
     }
     
     @GetMapping(value = {"/details/{id}"})
-    public User details(@PathVariable(value = "id") long id) {
-        return repository.getOne(id);
+    public String details(Model model,@PathVariable(value = "id") long id) {
+        
+        model.addAttribute("user",repository.getOne(id));
+        model.addAttribute("items",repository.getOne(id).getProducts());
+		return "user/detail";
     }
     
 }

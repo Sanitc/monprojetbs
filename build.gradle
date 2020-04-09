@@ -3,6 +3,12 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 	id 'eclipse'
+	id 'jacoco'	
+	id 'checkstyle'	
+	id "com.github.spotbugs" version "3.0.0"	
+	id 'pmd'
+	id 'de.aaschmid.cpd' version '3.1'
+
 }
 
 group = 'com.tactfactory.monprojetsb'
@@ -25,4 +31,35 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+task checkstyleMain (type: Checkstyle, overwrite: true) {
+    ignoreFailures = true
+    showViolations = false
+}
+
+task checkstyleTest (type: Checkstyle, overwrite: true){
+    ignoreFailures = true
+    showViolations = false
+}
+
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+  ignoreFailures = true
+}
+
+task pmdMain(type: Pmd, overwrite: true) {
+  ignoreFailures = true
+}
+
+task pmdTest(type: Pmd, overwrite: true) {
+  ignoreFailures = true
+}
+
+cpdCheck {
+  reports {
+    text.enabled = true
+    xml.enabled = true
+  }
+  source = sourceSets.main.allJava
+  minimumTokenCount = 50
 }
