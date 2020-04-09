@@ -13,7 +13,7 @@ import com.tactfactory.monprojetsb.monprojetsb.entities.User;
 import com.tactfactory.monprojetsb.monprojetsb.repository.UserRepository;
 
 @Controller
-@RequestMapping(value="/user")
+@RequestMapping(value="user")
 public class UserController {
 
 	@Autowired

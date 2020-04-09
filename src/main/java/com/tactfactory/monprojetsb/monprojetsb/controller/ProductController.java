@@ -13,11 +13,9 @@ import com.tactfactory.monprojetsb.monprojetsb.entities.Product;
 import com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository;
 
 
-
 @Controller
 @RequestMapping(value = "/product")
 public class ProductController {
-
 	
 	@Autowired
     private ProductRepository repository;
