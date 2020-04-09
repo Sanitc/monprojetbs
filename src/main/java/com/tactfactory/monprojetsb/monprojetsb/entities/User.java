@@ -2,10 +2,12 @@ package com.tactfactory.monprojetsb.monprojetsb.entities;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class User {
 	
 	@Id
@@ -46,6 +48,10 @@ public class User {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.products = products;
+	}
+	
+	public User() {
+		
 	}
 	
 }
