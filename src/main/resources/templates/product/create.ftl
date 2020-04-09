@@ -4,6 +4,8 @@
 </head>
 <body>
     <H1>Product Create</H1>
+    <a href="index">Product List</a>
+    <br>
 
     <form action="<@spring.url '/product/create'/>" method="POST">
         Name:<br>
