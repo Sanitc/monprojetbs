@@ -114,13 +114,13 @@ public class ProductServiceTest {
 	 */
 	@Test
 	public void TestDelete() {
-		Product product = new Product();
-        productService.save(product);
-        Long b = productRepository.count();
-        productService.delete(product);
-        Long a = productRepository.count();
+		 Product productTemp = new Product();
+	        productService.save(productTemp);
+	        Long before = productRepository.count();
+	        productService.delete(productTemp);
+	        Long after = productRepository.count();
 
-        assertEquals(b - 1, a);
+	        assertEquals(before - 1, after);
 	}
 	
 	/**

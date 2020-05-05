@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="3.1.12" sequence="0" timestamp="1586443182842" analysisTimestamp="1586443182877" release="0.0.1-SNAPSHOT">
+<BugCollection version="3.1.12" sequence="0" timestamp="1588687004749" analysisTimestamp="1588687004788" release="0.0.1-SNAPSHOT">
   <Project projectName="root project &apos;monprojetsb&apos; (main)">
     <Jar>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main\com\tactfactory\monprojetsb\monprojetsb\controller\ProductController.class</Jar>
     <Jar>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main\com\tactfactory\monprojetsb\monprojetsb\controller\UserController.class</Jar>
@@ -9,6 +9,8 @@
     <Jar>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main\com\tactfactory\monprojetsb\monprojetsb\MonprojetsbApplication.class</Jar>
     <Jar>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main\com\tactfactory\monprojetsb\monprojetsb\repository\ProductRepository.class</Jar>
     <Jar>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main\com\tactfactory\monprojetsb\monprojetsb\repository\UserRepository.class</Jar>
+    <Jar>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main\com\tactfactory\monprojetsb\monprojetsb\services\ProductService.class</Jar>
+    <Jar>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main\com\tactfactory\monprojetsb\monprojetsb\services\UserService.class</Jar>
     <AuxClasspathEntry>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\classes\java\main</AuxClasspathEntry>
     <AuxClasspathEntry>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\build\resources\main</AuxClasspathEntry>
     <AuxClasspathEntry>C:\Users\cleml\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-data-jpa\2.2.6.RELEASE\e6bfecf4694867d815514799ea23a937c623f496\spring-boot-starter-data-jpa-2.2.6.RELEASE.jar</AuxClasspathEntry>
@@ -91,9 +93,12 @@
     <SrcDir>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\src\main\java\com\tactfactory\monprojetsb\monprojetsb\repository\package-info.java</SrcDir>
     <SrcDir>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\src\main\java\com\tactfactory\monprojetsb\monprojetsb\repository\ProductRepository.java</SrcDir>
     <SrcDir>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\src\main\java\com\tactfactory\monprojetsb\monprojetsb\repository\UserRepository.java</SrcDir>
+    <SrcDir>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\src\main\java\com\tactfactory\monprojetsb\monprojetsb\services\package-info.java</SrcDir>
+    <SrcDir>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\src\main\java\com\tactfactory\monprojetsb\monprojetsb\services\ProductService.java</SrcDir>
+    <SrcDir>C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb\src\main\java\com\tactfactory\monprojetsb\monprojetsb\services\UserService.java</SrcDir>
   </Project>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Thu, 9 Apr 2020 16:39:42 +0200" total_classes="7" referenced_classes="41" total_bugs="0" total_size="120" num_packages="4" java_version="1.8.0_242" vm_version="25.242-b08" cpu_seconds="10.70" clock_seconds="2.63" peak_mbytes="194.21" alloc_mbytes="455.50" gc_seconds="0.11">
+  <FindBugsSummary timestamp="Tue, 5 May 2020 15:56:44 +0200" total_classes="9" referenced_classes="46" total_bugs="0" total_size="162" num_packages="5" java_version="1.8.0_242" vm_version="25.242-b08" cpu_seconds="11.64" clock_seconds="2.84" peak_mbytes="196.44" alloc_mbytes="455.50" gc_seconds="0.12">
     <PackageStats package="com.tactfactory.monprojetsb.monprojetsb" total_bugs="0" total_types="1" total_size="6">
       <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplication" sourceFile="MonprojetsbApplication.java" interface="false" size="6" bugs="0"/>
     </PackageStats>
@@ -105,21 +110,28 @@
       <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.entities.Product" sourceFile="Product.java" interface="false" size="28" bugs="0"/>
       <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.entities.User" sourceFile="User.java" interface="false" size="35" bugs="0"/>
     </PackageStats>
-    <PackageStats package="com.tactfactory.monprojetsb.monprojetsb.repository" total_bugs="0" total_types="2" total_size="2">
-      <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository" sourceFile="ProductRepository.java" interface="true" size="1" bugs="0"/>
-      <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.repository.UserRepository" sourceFile="UserRepository.java" interface="true" size="1" bugs="0"/>
+    <PackageStats package="com.tactfactory.monprojetsb.monprojetsb.repository" total_bugs="0" total_types="2" total_size="4">
+      <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository" sourceFile="ProductRepository.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.repository.UserRepository" sourceFile="UserRepository.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.tactfactory.monprojetsb.monprojetsb.services" total_bugs="0" total_types="2" total_size="40">
+      <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.services.ProductService" sourceFile="ProductService.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.tactfactory.monprojetsb.monprojetsb.services.UserService" sourceFile="UserService.java" interface="false" size="20" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="624" invocations="473" avgMicrosecondsPerInvocation="1320" maxMicrosecondsPerInvocation="3371" standardDeviationMicrosecondsPerInvocation="659"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="270" invocations="469" avgMicrosecondsPerInvocation="577" maxMicrosecondsPerInvocation="19423" standardDeviationMicrosecondsPerInvocation="1241"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="209" invocations="32" avgMicrosecondsPerInvocation="6561" maxMicrosecondsPerInvocation="204360" standardDeviationMicrosecondsPerInvocation="35525"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="86" invocations="41" avgMicrosecondsPerInvocation="2098" maxMicrosecondsPerInvocation="20708" standardDeviationMicrosecondsPerInvocation="5161"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUnsyncGet" totalMilliseconds="74" invocations="7" avgMicrosecondsPerInvocation="10632" maxMicrosecondsPerInvocation="74268" standardDeviationMicrosecondsPerInvocation="25979"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="54" invocations="102" avgMicrosecondsPerInvocation="535" maxMicrosecondsPerInvocation="5688" standardDeviationMicrosecondsPerInvocation="834"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="51" invocations="41" avgMicrosecondsPerInvocation="1255" maxMicrosecondsPerInvocation="16995" standardDeviationMicrosecondsPerInvocation="3142"/>
-      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="48" invocations="437" avgMicrosecondsPerInvocation="110" maxMicrosecondsPerInvocation="1756" standardDeviationMicrosecondsPerInvocation="186"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="43" invocations="70" avgMicrosecondsPerInvocation="627" maxMicrosecondsPerInvocation="20276" standardDeviationMicrosecondsPerInvocation="2554"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="37" invocations="41" avgMicrosecondsPerInvocation="914" maxMicrosecondsPerInvocation="17967" standardDeviationMicrosecondsPerInvocation="2901"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="601" invocations="480" avgMicrosecondsPerInvocation="1253" maxMicrosecondsPerInvocation="4482" standardDeviationMicrosecondsPerInvocation="784"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="283" invocations="477" avgMicrosecondsPerInvocation="594" maxMicrosecondsPerInvocation="18805" standardDeviationMicrosecondsPerInvocation="1434"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="217" invocations="48" avgMicrosecondsPerInvocation="4523" maxMicrosecondsPerInvocation="209528" standardDeviationMicrosecondsPerInvocation="29903"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="92" invocations="46" avgMicrosecondsPerInvocation="2007" maxMicrosecondsPerInvocation="17525" standardDeviationMicrosecondsPerInvocation="4726"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUselessObjects" totalMilliseconds="79" invocations="9" avgMicrosecondsPerInvocation="8868" maxMicrosecondsPerInvocation="79203" standardDeviationMicrosecondsPerInvocation="24867"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="65" invocations="46" avgMicrosecondsPerInvocation="1420" maxMicrosecondsPerInvocation="19191" standardDeviationMicrosecondsPerInvocation="3483"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="65" invocations="119" avgMicrosecondsPerInvocation="547" maxMicrosecondsPerInvocation="5854" standardDeviationMicrosecondsPerInvocation="944"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="49" invocations="445" avgMicrosecondsPerInvocation="111" maxMicrosecondsPerInvocation="3634" standardDeviationMicrosecondsPerInvocation="246"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="49" invocations="46" avgMicrosecondsPerInvocation="1073" maxMicrosecondsPerInvocation="35347" standardDeviationMicrosecondsPerInvocation="5118"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="46" invocations="77" avgMicrosecondsPerInvocation="597" maxMicrosecondsPerInvocation="23051" standardDeviationMicrosecondsPerInvocation="2644"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="40" invocations="46" avgMicrosecondsPerInvocation="878" maxMicrosecondsPerInvocation="14984" standardDeviationMicrosecondsPerInvocation="2536"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="33" invocations="9" avgMicrosecondsPerInvocation="3741" maxMicrosecondsPerInvocation="30944" standardDeviationMicrosecondsPerInvocation="9629"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="30" invocations="46" avgMicrosecondsPerInvocation="671" maxMicrosecondsPerInvocation="8729" standardDeviationMicrosecondsPerInvocation="1468"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>
