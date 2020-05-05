@@ -12,16 +12,16 @@ public class User {
 	
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	private String firstname;
 	private String lastname;
 	@OneToMany
 	private List<Product>products;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getFirstname() {
@@ -43,7 +43,7 @@ public class User {
 		this.products = products;
 	}
 	
-	public 	User(long id, String firstname, String lastname, List<Product>products) {
+	public 	User(Long id, String firstname, String lastname, List<Product>products) {
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;

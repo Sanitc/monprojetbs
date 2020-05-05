@@ -10,14 +10,14 @@ public class Product {
 	
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	private String name;
-	private float price;
+	private Float price;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -26,14 +26,14 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 	
-	public Product(long id, String name, float price){
+	public Product(Long id, String name, Float price){
 		this.id = id;
 		this.name = name;
 		this.price = price;

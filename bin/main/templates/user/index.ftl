@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring/>
 
 <head>
-    <#include "../includable/bootstrap.ftl">
+    
 </head>
 <body>
     <#if page??>
@@ -9,7 +9,7 @@
     </#if>
     <a href="create">Create new</a><br/>
     <a href="/product/index">Product List</a>
-    <table class="table table-bordered table-hover">
+    <table class="">
         <tr>
         <th>Firstname</th>
         <th>Lastname</th>

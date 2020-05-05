@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring/>
 
 <head>
-    <#include "../includable/bootstrap.ftl">
+    
 </head>
 <body>
     <H1>User Detail</H1>
@@ -11,7 +11,7 @@
     <p>User Firstname: ${user.firstname}</p>
     <p>User Lastname: ${user.lastname}</p>
 
-    <p>Product List: </p>
+    <p><b>Product List:</b> </p>
     <table class="table table-bordered table-hover">
         <tr>
         <th>Name</th>

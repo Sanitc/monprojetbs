@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring/>
 
 <head>
-    <#include "../includable/bootstrap.ftl">
+
 </head>
 <body>
     <#if page??>

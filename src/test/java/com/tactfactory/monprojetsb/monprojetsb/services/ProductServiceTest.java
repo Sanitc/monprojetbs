@@ -1,0 +1,157 @@
+package com.tactfactory.monprojetsb.monprojetsb.services;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertNull;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.tactfactory.monprojetsb.monprojetsb.entities.Product;
+import com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository;
+
+
+
+@EntityScan(basePackages="com.tactfactory.monprojetsb.monprojetsb")
+@ComponentScan(basePackages="com.tactfactory.monprojetsb.monprojetsb")
+@AutoConfigureTestDatabase(replace = Replace.NONE)
+@DataJpaTest
+@RunWith(SpringRunner.class)
+public class ProductServiceTest {
+	
+	@Autowired
+	private ProductService productService;
+	
+	@Autowired
+	private ProductRepository productRepository;
+
+	/**
+	 * Test que l’insertion d’un produit ajoute bien un enregistrement dans la base de données
+	 */
+	@Test
+	public void TestInsert() {
+		Long b = productRepository.count();
+		productService.save(new Product());
+		Long a = productRepository.count();
+		
+		assertEquals(b + 1, a);
+	}
+	
+	/**
+	 * • Test que l’insertion d’un produit n’a pas altérer les données de l’objet sauvegardé
+	 */
+	@Test
+	public void TestInsertProduct() {
+		Product newProduct = new Product(null, "awing", (float) 10);
+        Long id = productService.save(newProduct).getId();
+        Product productBDD = productRepository.getProductById(id);
+
+        assertTrue(compare(newProduct, productBDD));
+	}
+	
+	/**
+	 * Test que la mise à jour d’un produit n’a pas altérer les données de l’objet sauvegardé
+	 */
+	@Test
+	public void TestUpdateProduct() {
+		 
+        Product product = new Product(null, "awing", (float) 10);
+        Long id = productService.save(product).getId();
+
+        Product productBDD = productRepository.getProductById(id);
+        productBDD.setPrice((float) 20);
+
+        Long idUpdate = productService.save(productBDD).getId();
+        Product productUpdated = productRepository.getProductById(id);
+
+        assertTrue(compare(productBDD, productUpdated));
+	}
+	
+	/**
+	 * Test qu’un produit est récupéré avec les bonnes données
+	 */
+	@Test
+	public void getOneProduct() {
+		Product product = new Product(null, "awing", (float) 10);
+		Long id = productRepository.save(product).getId();
+		Product productBDD = productService.getProductById(id);
+
+		assertTrue(compare(product, productBDD));
+	}
+	
+	/**
+	 * Test qu’une liste de produit est récupéré avec les bonnes données
+	 */
+	public void TestListProduct() {
+	    List<Product> products = new ArrayList<Product>();
+        Product product1 = new Product(null, "awing", (float) 10);
+        products.add(product1);
+        Product product2 = new Product(null, "bwing", (float) 10);
+        products.add(product2);
+
+        productService.saveList(products);
+
+        List<Product> productsFetch = productService.findAll();
+
+        for (int i = 0; i < productsFetch.size(); i++) {
+            assertTrue(compare(products.get(i), productsFetch.get(i)));
+        }
+	}
+
+	/**
+	 * Test que la suppression d’un produit décrémente le nombre d’enregistrement présent
+	 */
+	@Test
+	public void TestDelete() {
+		Product product = new Product();
+        productService.save(product);
+        Long b = productRepository.count();
+        productService.delete(product);
+        Long a = productRepository.count();
+
+        assertEquals(b - 1, a);
+	}
+	
+	/**
+	 * Test que la suppression d’un produit supprime bien le bon élément
+	 */
+	@Test
+	public void TestDeleteProduct() {
+		Product product = new Product(null, "awing", (float) 10);
+        Long id = productRepository.save(product).getId();
+        productService.delete(product);
+
+        Product deleteProduct = productService.getProductById(id);
+        assertNull(deleteProduct);
+	}
+	
+	 public Boolean compare(Product product1, Product product2) {
+	        boolean result = true;
+
+	        if (!product1.getId().equals(product2.getId())) {
+	            result = false;
+	            System.out.println("id: " + product1.getId() + " " + product2.getId());
+	        }
+	        if (!product1.getName().equals(product2.getName())) {
+	            result = false;
+	            System.out.println("name: " + product1.getName() + " " + product2.getName());
+	        }
+	        if (!product1.getPrice().equals(product2.getPrice())) {
+	            result = false;
+	            System.out.println("price: " + product1.getPrice() + " " + product2.getPrice());
+	        }
+
+	        return result;
+	    }
+}
