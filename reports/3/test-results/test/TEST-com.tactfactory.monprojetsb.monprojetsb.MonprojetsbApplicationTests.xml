@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-05T13:57:06" hostname="DESKTOP-M4T51JE" time="0.016">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests" time="0.016"/>
+  <system-out><![CDATA[2020-05-05 15:57:03.730  INFO 18576 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests], using SpringBootContextLoader
+2020-05-05 15:57:03.731  INFO 18576 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-05-05 15:57:03.731  INFO 18576 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests]: MonprojetsbApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-05-05 15:57:03.740  INFO 18576 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplication for test class com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests
+2020-05-05 15:57:03.743  INFO 18576 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-05-05 15:57:03.744  INFO 18576 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@43e74a25, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6f9f1635, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2ae58b3f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@32bf6e0e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4b70ac1e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5cc925fb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5a73e12e, org.springframework.test.context.event.EventPublishingTestExecutionListener@13f53b70, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5dab754c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@485865ff, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@de7874b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3773033c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3174118b]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.6.RELEASE)
+
+2020-05-05 15:57:03.809  INFO 18576 --- [    Test worker] c.t.m.m.MonprojetsbApplicationTests      : Starting MonprojetsbApplicationTests on DESKTOP-M4T51JE with PID 18576 (started by cleml in C:\Users\cleml\eclipse-workspace\workspaceTeletravail\monprojetsb)
+2020-05-05 15:57:03.810  INFO 18576 --- [    Test worker] c.t.m.m.MonprojetsbApplicationTests      : No active profile set, falling back to default profiles: default
+2020-05-05 15:57:04.353  INFO 18576 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-05 15:57:04.375  INFO 18576 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 2 JPA repository interfaces.
+2020-05-05 15:57:04.860  INFO 18576 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-05 15:57:04.865  INFO 18576 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-05-05 15:57:04.870  INFO 18576 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-05-05 15:57:04.870  INFO 18576 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-05-05 15:57:04.982  INFO 18576 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-05 15:57:04.982  INFO 18576 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-05 15:57:05.487  WARN 18576 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-05 15:57:05.902  INFO 18576 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-05 15:57:06.618  INFO 18576 --- [    Test worker] c.t.m.m.MonprojetsbApplicationTests      : Started MonprojetsbApplicationTests in 2.851 seconds (JVM running for 13.917)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
