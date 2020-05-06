@@ -38,11 +38,11 @@ public class ProductServiceTest {
 	public void TestInsert() {
 		Product product = new Product();
 		productService.save(product);
-        Long b = productRepository.count();
-        productService.delete(product);
-        Long a = productRepository.count();
-
-        assertEquals(b - 1, a);
+	    Long b = productRepository.count();
+	    productService.delete(product);
+	    Long a = productRepository.count();
+	
+	    assertEquals(b - 1, a);
 	}
 	
 	/**
@@ -104,12 +104,12 @@ public class ProductServiceTest {
 	@Test
 	public void TestDelete() {
 		 Product productTemp = new Product();
-	        productService.save(productTemp);
-	        Long before = productRepository.count();
-	        productService.delete(productTemp);
-	        Long after = productRepository.count();
+	     productService.save(productTemp);
+	     Long before = productRepository.count();
+	     productService.delete(productTemp);
+	     Long after = productRepository.count();
 
-	        assertEquals(before - 1, after);
+	     assertEquals(before - 1, after);
 	}
 	
 	/**
@@ -126,29 +126,29 @@ public class ProductServiceTest {
 	}
 	
 	 public Boolean compare(Product product1, Product product2) {
-	        boolean result = true;
+        boolean result = true;
 
-	        if (!product1.getId().equals(product2.getId())) {
-	            result = false;
-	            System.out.println("id: " + product1.getId() + " " + product2.getId());
-	        }
-	        if (!product1.getName().equals(product2.getName())) {
-	            result = false;
-	            System.out.println("name: " + product1.getName() + " " + product2.getName());
-	        }
-	        if (!product1.getPrice().equals(product2.getPrice())) {
-	            result = false;
-	            System.out.println("price: " + product1.getPrice() + " " + product2.getPrice());
-	        }
+        if (!product1.getId().equals(product2.getId())) {
+            result = false;
+            System.out.println("id: " + product1.getId() + " " + product2.getId());
+        }
+        if (!product1.getName().equals(product2.getName())) {
+            result = false;
+            System.out.println("name: " + product1.getName() + " " + product2.getName());
+        }
+        if (!product1.getPrice().equals(product2.getPrice())) {
+            result = false;
+            System.out.println("price: " + product1.getPrice() + " " + product2.getPrice());
+        }
 
-	        return result;
-	    }
+        return result;
+    }
 	 
 	 private boolean isValid(Product product1, Product product2) {
-	        boolean isValid = false;
-	        if (product1.getName().equals(product2.getName()) && product1.getPrice().equals(product2.getPrice())) {
-	            isValid = true;
-	        }
-	        return isValid;
-	    }
+        boolean isValid = false;
+        if (product1.getName().equals(product2.getName()) && product1.getPrice().equals(product2.getPrice())) {
+            isValid = true;
+        }
+        return isValid;
+    }
 }
