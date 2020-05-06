@@ -15,19 +15,20 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.tactfactory.monprojetsb.monprojetsb.entities.Product;
 import com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository;
+import com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests;
 
 
-
-@EntityScan(basePackages="com.tactfactory.monprojetsb.monprojetsb")
-@ComponentScan(basePackages="com.tactfactory.monprojetsb.monprojetsb")
-@AutoConfigureTestDatabase(replace = Replace.NONE)
-@DataJpaTest
-@RunWith(SpringRunner.class)
+@ActiveProfiles("test")
+@TestPropertySource(locations = { "classpath:applicationtest.properties" })
+@SpringBootTest(classes = MonprojetsbApplicationTests.class)
 public class ProductServiceTest {
 	
 	@Autowired

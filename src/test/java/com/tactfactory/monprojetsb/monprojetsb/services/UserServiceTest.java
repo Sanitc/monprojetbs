@@ -9,16 +9,21 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
+import com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests;
 import com.tactfactory.monprojetsb.monprojetsb.entities.Product;
 import com.tactfactory.monprojetsb.monprojetsb.entities.User;
+import com.tactfactory.monprojetsb.monprojetsb.mocks.repositories.MockitoUserRepository;
 import com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository;
 import com.tactfactory.monprojetsb.monprojetsb.repository.UserRepository;
 
@@ -27,11 +32,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 
 
 
-@EntityScan(basePackages="com.tactfactory.monprojetsb.monprojetsb")
-@ComponentScan(basePackages="com.tactfactory.monprojetsb.monprojetsb")
-@AutoConfigureTestDatabase(replace = Replace.NONE)
-@DataJpaTest
-@RunWith(SpringRunner.class)
+@ActiveProfiles("test")
+@TestPropertySource(locations = { "classpath:applicationtest.properties" })
+@SpringBootTest(classes = MonprojetsbApplicationTests.class)
 public class UserServiceTest {
 
 	@Autowired
@@ -40,8 +43,18 @@ public class UserServiceTest {
 	@Autowired
 	private UserRepository userRepository;
 	
-	   @Autowired
-	   private ProductRepository productRepository;
+	@Autowired
+	private ProductRepository productRepository;
+	
+	private User entity;
+	 
+	@BeforeEach
+	public void setUp() throws Exception {
+		final MockitoUserRepository mock = new MockitoUserRepository(this.userRepository);
+	    mock.intialize();
+	    this.entity = mock.entity;
+	}
+	 
 	
 	/**
 	 * Test que l’insertion d’un user ajoute bien un enregistrement dans la base de données
@@ -49,7 +62,7 @@ public class UserServiceTest {
 	@Test
 	public void TestInsert() {
 		Long b = userRepository.count();
-		userService.save(new User());
+		userService.save(this.entity);
 		Long a = userRepository.count();
 		
 		assertEquals(b + 1, a);

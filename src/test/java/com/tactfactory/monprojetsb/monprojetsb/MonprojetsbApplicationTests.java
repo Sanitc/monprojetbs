@@ -1,10 +1,11 @@
 package com.tactfactory.monprojetsb.monprojetsb;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootTest
-class MonprojetsbApplicationTests {
+
+@SpringBootApplication
+public class MonprojetsbApplicationTests {
 
 	@Test
 	void contextLoads() {
