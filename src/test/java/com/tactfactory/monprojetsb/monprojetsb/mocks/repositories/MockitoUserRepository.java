@@ -14,7 +14,7 @@ import com.tactfactory.monprojetsb.monprojetsb.entities.User;
 import com.tactfactory.monprojetsb.monprojetsb.repository.UserRepository;
 
 public class MockitoUserRepository {
-	protected final UserRepository repository;
+	  protected final UserRepository repository;
 
 	  public User entity;
 
