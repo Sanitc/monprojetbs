@@ -64,12 +64,9 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void TestInsertUser() {
-		User newUser = new User(null,"Kenobi","Ben", new ArrayList<Product>());
-        Long id = userService.save(newUser).getId();
-        User user = userRepository.getOne(id);
-        assertEquals(user.getFirstname(), newUser.getFirstname());
-        assertEquals(user.getLastname(), newUser.getLastname());
-        assertEquals(user.getProducts(), newUser.getProducts());
+		userService.save(entity);
+	    User createdUser = userRepository.findById(entity.getId()).get();
+	    assertTrue(isValid(createdUser, entity));
 	}
 	
 	/**
@@ -77,35 +74,14 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void TestUpdateUser() {
-	
-		// Create User
-        User userBase = new User(null,"Skywalker","Luke", new ArrayList<Product>());
-        Long id = userService.save(userBase).getId();
-
-        //Create Product 1
-        Product newProduct1 = new Product(null, "xwing",(float) 10);
-        Long p1 = productRepository.save(newProduct1).getId();
-        Product product1 = productRepository.getProductById(p1);
-
-        // Create product 2
-        Product newProduct2 = new Product(null, "ywing",(float) 10);
-        Long p2 = productRepository.save(newProduct2).getId();
-        Product product2 = productRepository.getProductById(p2);
-
-        // Add products 1 and 2 to products
-        List<Product> products = new ArrayList<Product>();
-        products.add(product1);
-        products.add(product2);
-
-        // Get user and set products
-        User user = userRepository.getUserById(id);
-        user.setProducts(products);
-
-        // Update user and get id to check modifications
-        Long idUpdate = userService.save(user).getId();
-        User userUpdate = userRepository.getUserById(id);
-
-        assertTrue(compare(user, userUpdate));
+	       
+        userService.save(entity);
+        User userCreate = userRepository.findById(entity.getId()).get();
+        userCreate.setFirstname("Solo");
+        userService.save(userCreate);
+        User userUpdate = userRepository.findById(entity.getId()).get();
+        assertTrue(isValid(userUpdate, userCreate));
+        
 		
 	}
 	
@@ -114,11 +90,9 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void getOneUser() {
-		User newUser =  new User(null,"Skywalker","Luke", new ArrayList<Product>());
-        Long id = userRepository.save(newUser).getId();
-        User user = userService.getUserById(id);
-
-        assertTrue(compare(newUser, user));
+		userRepository.save(entity);
+	    User user = userService.getUserById(entity.getId());
+	    assertTrue(isValid(user, entity));
 	}
 	
 	/**
@@ -185,5 +159,13 @@ public class UserServiceTest {
 
         return result;
     }
+	
+	  private boolean isValid(User user1, User user2) {
+	      boolean isValid = false;
+	      if (user1.getFirstname().equals(user2.getFirstname()) && user1.getLastname().equals(user2.getLastname())) {
+	          isValid = true;
+	      }
+	      return isValid;
+	  }
 	
 }

@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import com.tactfactory.monprojetsb.monprojetsb.entities.Product;
+import com.tactfactory.monprojetsb.monprojetsb.entities.User;
 import com.tactfactory.monprojetsb.monprojetsb.repository.ProductRepository;
 import com.tactfactory.monprojetsb.monprojetsb.MonprojetsbApplicationTests;
 
@@ -28,16 +29,20 @@ public class ProductServiceTest {
 	@Autowired
 	private ProductRepository productRepository;
 
+	private Product entity;
+	
 	/**
 	 * Test que l’insertion d’un produit ajoute bien un enregistrement dans la base de données
 	 */
 	@Test
 	public void TestInsert() {
-		Long b = productRepository.count();
-		productService.save(new Product());
-		Long a = productRepository.count();
-		
-		assertEquals(b + 1, a);
+		Product product = new Product();
+		productService.save(product);
+        Long b = productRepository.count();
+        productService.delete(product);
+        Long a = productRepository.count();
+
+        assertEquals(b - 1, a);
 	}
 	
 	/**
@@ -45,11 +50,9 @@ public class ProductServiceTest {
 	 */
 	@Test
 	public void TestInsertProduct() {
-		Product newProduct = new Product(null, "awing", (float) 10);
-        Long id = productService.save(newProduct).getId();
-        Product productBDD = productRepository.getProductById(id);
-
-        assertTrue(compare(newProduct, productBDD));
+		productService.save(entity);
+	    Product product = productRepository.findById(entity.getId()).get();
+	    assertTrue(isValid(product, entity));
 	}
 	
 	/**
@@ -58,16 +61,12 @@ public class ProductServiceTest {
 	@Test
 	public void TestUpdateProduct() {
 		 
-        Product product = new Product(null, "awing", (float) 10);
-        Long id = productService.save(product).getId();
-
-        Product productBDD = productRepository.getProductById(id);
-        productBDD.setPrice((float) 20);
-
-        Long idUpdate = productService.save(productBDD).getId();
-        Product productUpdated = productRepository.getProductById(id);
-
-        assertTrue(compare(productBDD, productUpdated));
+		productService.save(entity);
+	    Product product = productRepository.findById(entity.getId()).get();
+	    product.setName("NouveauNom");
+	    productService.save(product);
+	    Product productUpdate = productRepository.findById(entity.getId()).get();
+	    assertTrue(isValid(productUpdate, product));
 	}
 	
 	/**
@@ -75,11 +74,9 @@ public class ProductServiceTest {
 	 */
 	@Test
 	public void getOneProduct() {
-		Product product = new Product(null, "awing", (float) 10);
-		Long id = productRepository.save(product).getId();
-		Product productBDD = productService.getProductById(id);
-
-		assertTrue(compare(product, productBDD));
+		 productRepository.save(entity);
+	     Product product = productService.getProductById(entity.getId());
+	     assertTrue(isValid(product, entity));
 	}
 	
 	/**
@@ -145,5 +142,13 @@ public class ProductServiceTest {
 	        }
 
 	        return result;
+	    }
+	 
+	 private boolean isValid(Product product1, Product product2) {
+	        boolean isValid = false;
+	        if (product1.getName().equals(product2.getName()) && product1.getPrice().equals(product2.getPrice())) {
+	            isValid = true;
+	        }
+	        return isValid;
 	    }
 }
